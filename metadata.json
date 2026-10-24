@@ -1,0 +1,8 @@
+{
+  "name": "AegisFlood AI: Flood Damage & Connectivity Mapping",
+  "description": "AI-powered remote sensing flood segmentation, GIS infrastructure impact, road network graph connectivity, and candidate isolated area detection platform.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

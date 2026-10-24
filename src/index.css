@@ -1,0 +1,85 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* High-Contrast Daylight Mode Global Base */
+:root {
+  --color-bg-primary: #020617;
+  --color-bg-surface: #0f172a;
+  --color-border: #1e293b;
+  --color-text-main: #f8fafc;
+  --color-text-muted: #94a3b8;
+}
+
+html.light,
+[data-theme="light"] {
+  --color-bg-primary: #f8fafc;
+  --color-bg-surface: #ffffff;
+  --color-border: #cbd5e1;
+  --color-text-main: #0f172a;
+  --color-text-muted: #475569;
+}
+
+/* Field daylight scrollbar contrast */
+html.light ::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+html.light ::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+html.light ::-webkit-scrollbar-thumb {
+  background: #94a3b8;
+  border-radius: 4px;
+}
+html.light ::-webkit-scrollbar-thumb:hover {
+  background: #64748b;
+}
+
+/* Suppress any Leaflet attribution or watermark badges */
+.leaflet-control-attribution {
+  display: none !important;
+}
+
+/* Suppress any injected watermark, banner, or prompt requiring an API key */
+[class*="watermark"],
+[id*="watermark"],
+[class*="api-key"],
+[id*="api-key"],
+[class*="apikey"],
+[id*="apikey"],
+[data-testid*="watermark"],
+[data-testid*="api-key"],
+div:has(> [class*="watermark"]),
+div[aria-label*="watermark" i] {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+/* Smooth Entrance Slide-in for InspectionDrawer */
+@keyframes slideInFromRight {
+  0% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.animate-slide-in-right {
+  animation: slideInFromRight 0.32s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  will-change: transform, opacity;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-slide-in-right {
+    animation: none !important;
+    transform: none !important;
+    opacity: 1 !important;
+  }
+}
+
